@@ -1,0 +1,89 @@
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Create Employee</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="form-group" [ngClass]="{'has-error':formErrors.fullname}">
+                <label class="col-sm-2 control-lable" for="fullname">Fullname</label>
+                <div class="col-sm-8">
+                    <input id="fullname" formControlName="fullname" type="text" class="form-control"
+                    (blur)="logValidationErrors()">
+                    <label>{{ fnameLength }}</label>
+                    <span class="help-block" *ngIf="formErrors.fullname">
+                    {{formErrors.fullname}}
+                </span>
+                </div>
+            </div>
+
+            <div class="form-group" [ngClass]="{'has-error':formErrors.email}">
+                <label class="col-sm-2 control-lable" for="email">email</label>
+                <div class="col-sm-8">
+                    <input id="email" formControlName="email" type="text" class="form-control"
+                    (blur)="logValidationErrors()">
+                    <span class="help-block" *ngIf="formErrors.email">
+                        {{formErrors.email}}
+                    </span>
+                </div>
+            </div>
+
+            <div formGroupName="skills">
+                <div class="form-group">
+                    <label class="col-sm-2 control-lable" for="skillName">Skill</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="skillName" placeholder="Name"
+                            formControlName="skillName">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="Experiencr in Years"
+                            formControlName="expInYr">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-lable">Proficiency</label>
+                    <div class="col-md-8">
+                        <label class="radio-inline">
+                            <input type="radio" value="beginner" formControlName="proficiency">Beginner
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" value="intermediate" formControlName="proficiency">Intermediate
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" value="advanced" formControlName="proficiency">Advanced
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="btn-toolbar">
+                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-primary" type="button" (click)="onLoadDataClick()">Load Data</button>
+            </div>
+        </div>
+    </div>
+</form>
+<!--
+<table border="1">
+    <tr>
+        <th style="padding: 10px">FormGroup</th>
+        <th style="padding: 10px;">FormControl (fullname)</th>
+    </tr>
+    <tr>
+        <td style="padding: 10px;">
+            touched :{{empForm.touched}}<br>
+            dirty :{{empForm.dirty}}<br>
+            valid :{{empForm.valid}}<br>
+            form Values :{{empForm.value}}
+        </td>
+
+        <td style="padding: 10px;">
+            touched :{{empForm.get('fullname').touched}}<br>
+            dirty :{{empForm.get('fullname').dirty}}<br>
+            valid :{{empForm.get('fullname').valid}}<br>
+            form Values :{{empForm.get('fullname').value}}
+        </td>
+    </tr>
+</table>
+-->

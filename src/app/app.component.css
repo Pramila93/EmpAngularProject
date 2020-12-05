@@ -1,0 +1,18 @@
+div{
+    background-color:rgb(179, 245, 245);
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    background-color: rgb(255, 0, 119);
+}
+ul li{
+    margin: 20px;
+    font-size: 30px;
+
+}
+
+.active{
+    color:white;
+}
